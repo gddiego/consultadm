@@ -9,7 +9,7 @@
   </div>
 @section('main')
 <div>
-    <a  type="button" class="btn btn-primary"  href="{{ route('pacientes.create')}}" >New contact</a>
+    <a  type="button" class="btn btn-primary"  href="{{ route('pacientes.create')}}" >Novo</a>
     </div>
 <div class="row">
 <div class="col-sm-12">

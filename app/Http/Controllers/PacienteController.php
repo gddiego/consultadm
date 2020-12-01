@@ -26,8 +26,9 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('pacientes.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
