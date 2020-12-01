@@ -18,6 +18,4 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::resource('/pacientes', PacienteController::class)->only([
-    'index', 'show'
-]);
+Route::resource('/pacientes', PacienteController::class);

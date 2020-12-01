@@ -88,7 +88,7 @@ class PacienteController extends Controller
         $paciente->country = $request->get('country');
         $paciente->save();
 
-        return redirect('/contacts')->with('success', 'Paciente Atualizado!');
+        return redirect('/pacientes')->with('success', 'Paciente Atualizado!');
     }
 
     /**

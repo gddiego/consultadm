@@ -9,24 +9,24 @@
   </div>
 @section('main')
 <div>
-    <a style="margin: 19px;" href="{{ route('contacts.create')}}" class="btn btn-primary">New contact</a>
+    <a  type="button" class="btn btn-primary"  href="{{ route('pacientes.create')}}" >New contact</a>
     </div>
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">Contacts</h1>
+    <h1 class="display-3">Pacientes</h1>
   <table class="table table-striped">
     <thead>
         <tr>
           <td>ID</td>
           <td>Name</td>
           <td>Email</td>
-          <td>Job Title</td>
-          <td>City</td>
-          <td>Country</td>
+          <td>Trabalho</td>
+          <td>Cidade</td>
+          <td>Enderço</td>
           <td colspan = 2>Actions</td>
         </tr>
     </thead>
-    <tbody>
+    {{-- <tbody>
         @foreach($contacts as $contact)
         <tr>
             <td>{{$contact->id}}</td>
@@ -48,7 +48,7 @@
         </tr>
         @endforeach
     </tbody>
-  </table>
+  </table> --}}
 <div>
 </div>
 @endsection
