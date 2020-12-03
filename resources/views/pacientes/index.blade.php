@@ -18,37 +18,36 @@
     <thead>
         <tr>
           <td>ID</td>
-          <td>Name</td>
-          <td>Email</td>
-          <td>Trabalho</td>
-          <td>Cidade</td>
-          <td>Enderço</td>
-          <td colspan = 2>Actions</td>
+          <td>nome</td>
+          <td>sobrenome</td>
+          <td>telefone</td>
+          <td>email</td>
+          <td>cpf</td>
+          <td colspan = 2>Ações</td>
         </tr>
     </thead>
-    {{-- <tbody>
-        @foreach($contacts as $contact)
+    <tbody>
+        @foreach($pacientes as $paciente)
         <tr>
-            <td>{{$contact->id}}</td>
-            <td>{{$contact->first_name}} {{$contact->last_name}}</td>
-            <td>{{$contact->email}}</td>
-            <td>{{$contact->job_title}}</td>
-            <td>{{$contact->city}}</td>
-            <td>{{$contact->country}}</td>
+            <td>{{$paciente->id}}</td>
+            <td>{{$paciente->nome}} {{$paciente->sobrenome}}</td>
+            <td>{{$paciente->telefone}}</td>
+            <td>{{$paciente->email}}</td>
+            <td>{{$paciente->cpf}}</td>
             <td>
-                <a href="{{ route('contacts.edit',$contact->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('pacientes.edit',$paciente->id)}}" class="btn btn-primary">Editar</a>
             </td>
             <td>
-                <form action="{{ route('contacts.destroy', $contact->id)}}" method="post">
+                <form action="{{ route('pacientes.destroy', $paciente->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <button class="btn btn-danger" type="submit">Remover</button>
                 </form>
             </td>
         </tr>
         @endforeach
     </tbody>
-  </table> --}}
+  </table>
 <div>
 </div>
 @endsection

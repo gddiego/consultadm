@@ -2,7 +2,7 @@
 @section('main')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Update a contact</h1>
+        <h1 class="display-3">Atualizar Paciente</h1>
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -14,37 +14,34 @@
         </div>
         <br />
         @endif
-        <form method="post" action="{{ route('contacts.update', $contact->id) }}">
+        <form method="post" action="{{ route('pacientes.update', $paciente->id) }}">
             @method('PATCH')
             @csrf
             <div class="form-group">
 
-                <label for="first_name">First Name:</label>
-                <input type="text" class="form-control" name="first_name" value={{ $contact->first_name }} />
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" name="nome" value={{ $contact->first_name }} />
             </div>
 
             <div class="form-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" class="form-control" name="last_name" value={{ $contact->last_name }} />
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" class="form-control" name="sobrenome" value={{ $contact->last_name }} />
             </div>
 
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input type="text" class="form-control" name="telefone" value={{ $contact->email }} />
+            </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="text" class="form-control" name="email" value={{ $contact->email }} />
+                <input type="text" class="form-control" name="email" value={{ $contact->city }} />
             </div>
             <div class="form-group">
-                <label for="city">City:</label>
-                <input type="text" class="form-control" name="city" value={{ $contact->city }} />
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" name="cpf" value={{ $contact->country }} />
             </div>
-            <div class="form-group">
-                <label for="country">Country:</label>
-                <input type="text" class="form-control" name="country" value={{ $contact->country }} />
-            </div>
-            <div class="form-group">
-                <label for="job_title">Job Title:</label>
-                <input type="text" class="form-control" name="job_title" value={{ $contact->job_title }} />
-            </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+
+            <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>
     </div>
 </div>
