@@ -64,6 +64,7 @@ class AgendamentoController extends Controller
         $medico->paciente_id = $request->get('paciente_id');
         $medico->data = $request->get('data');
         // dd($medico);
+
         $medico->save();
         // return view('agendamentos.index');
         return redirect()->route('agendamentos.index')->with('message', 'Medico cadastrado com sucesso!');
