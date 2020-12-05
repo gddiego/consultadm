@@ -9,6 +9,7 @@
   </div>
 @section('main')
 <div>
+    <a  href="{{ route('home')}}" >Voltar a home</a>
     <a  type="button" class="btn btn-primary"  href="{{ route('pacientes.create')}}" >Novo</a>
     </div>
 <div class="row">

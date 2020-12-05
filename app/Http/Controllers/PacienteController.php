@@ -16,7 +16,7 @@ class PacienteController extends Controller
     {
         $pacientes = Paciente::all();
 
-        return view('pacientes.index');
+        return view('pacientes.index')->with(compact('pacientes'));
     }
 
     /**
@@ -39,12 +39,19 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request->validate([
+            'nome' => 'required',
+            'sobrenome' => 'required',
+            'cpf' => 'required',
+            
+        ]);
         $paciente = new Paciente;
-        $paciente->nome        = $request->nome;
-        $paciente->sobrenome = $request->sobrenome;
-        $paciente->email    = $request->email;
-        $paciente->telefone    = $request->telefone;
-        $paciente->cpf       = $request->cpf;
+        $paciente->nome        = $request->get('nome');
+        $paciente->sobrenome = $request->get('sobrenome');
+        $paciente->email    = $request->get('email');
+        $paciente->telefone    = $request->get('telefone');
+        $paciente->cpf       = $request->get('cpf');
         $paciente->save();
         return redirect()->route('pacientes.index')->with('message', 'Paciente cadastrado com sucesso!');
     }

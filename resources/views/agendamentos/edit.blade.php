@@ -14,38 +14,42 @@
         </div>
         <br />
         @endif
-        <form method="post" action="{{ route('contacts.update', $contact->id) }}">
-            @method('PATCH')
+        <form method="post" action="{{ route('agendamentos.store') }}">
             @csrf
+            </div>
             <div class="form-group">
+                <label for="job_title">Selecione Medico:</label>
+                <select  name="medico_id" class="form-control form-control-sm">
+                  <option>Sel</option>
+                  @foreach($medicos as $value)
+                    <option {{$value->id ? 'selected' : '' }}  value="{{ $value->id }}">{{$value->nome}}</option>
+                  @endforeach
+                </select>
 
-                <label for="first_name">First Name:</label>
-                <input type="text" class="form-control" name="first_name" value={{ $contact->first_name }} />
+                {{-- <select name="pacientes[]" multiple="multiple" class="form-control">
+
+                </select> --}}
             </div>
 
             <div class="form-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" class="form-control" name="last_name" value={{ $contact->last_name }} />
-            </div>
+              <label for="job_title">Selecione Paciente:</label>
+              <select  name="paciente_id" class="form-control form-control-sm">
+                  <option>Selecione</option>
+                  @foreach($pacientes as $value)
+                    <option {{$value->id ? 'selected' : '' }}  value="{{ $value->id }}">{{$value->nome}}</option>
+                  @endforeach
+                </select>
+          </div>
 
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" name="email" value={{ $contact->email }} />
-            </div>
-            <div class="form-group">
-                <label for="city">City:</label>
-                <input type="text" class="form-control" name="city" value={{ $contact->city }} />
-            </div>
-            <div class="form-group">
-                <label for="country">Country:</label>
-                <input type="text" class="form-control" name="country" value={{ $contact->country }} />
-            </div>
-            <div class="form-group">
-                <label for="job_title">Job Title:</label>
-                <input type="text" class="form-control" name="job_title" value={{ $contact->job_title }} />
-            </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+          <div class="form-group">
+              <label for="job_title">Informe uma Data:</label>
+              <div class="col-10">
+                  <input class="form-control" type="date"  name="data" id="example-date-input">
+                </div>
+          </div>
+            <button type="submit" class="btn btn-primary-outline">Adicionar</button>
         </form>
+
     </div>
 </div>
 @endsection

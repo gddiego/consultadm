@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Medico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MedicoController extends Controller
 {
@@ -13,7 +15,9 @@ class MedicoController extends Controller
      */
     public function index()
     {
-        //
+        $medicos = Medico::all();
+
+        return view('medicos.index')->with(compact('medicos'));
     }
 
     /**
@@ -23,8 +27,9 @@ class MedicoController extends Controller
      */
     public function create()
     {
-        //
+        return view('medicos.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -35,6 +40,23 @@ class MedicoController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request->validate([
+            'nome' => 'required',
+            'sobrenome' => 'required',
+            'cpf' => 'required',
+            'crm' => 'required',
+
+        ]);
+        $medico = new Medico;
+        $medico->nome        = $request->get('nome');
+        $medico->sobrenome = $request->get('sobrenome');
+        $medico->email    = $request->get('email');
+        $medico->telefone    = $request->get('telefone');
+        $medico->cpf       = $request->get('cpf');
+        $medico->crm       = $request->get('crm');
+        $medico->save();
+        return redirect()->route('medicos.index')->with('message', 'Medico cadastrado com sucesso!');
     }
 
     /**
@@ -56,7 +78,8 @@ class MedicoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $paciente = Medico::find($id);
+        return view('pacientes.edit', compact('paciente'));
     }
 
     /**
@@ -68,7 +91,23 @@ class MedicoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'nome' => 'required',
+            'sobrenome' => 'required',
+            'cpf' => 'required',
+            'crm' => 'required'
+        ]);
+
+        $medico = Medico::find($id);
+        $medico->nome =  $request->get('nome');
+        $medico->sobrenome = $request->get('sobrenome');
+        $medico->telefone = $request->get('telefone');
+        $medico->cpf = $request->get('cpf');
+        $medico->crm = $request->get('crm');
+        $medico->save();
+
+        return redirect('/medicos')->with('success', 'Medico Atualizado!');
     }
 
     /**
@@ -79,6 +118,16 @@ class MedicoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $medico = Medico::find($id);
+        $medico->delete();
+
+        return redirect('/medicos')->with('success', 'Medicos deletado!');
+    }
+
+    public function listMedicos()
+    {
+        $dados = DB::table('medicos')->orderBY('id')->get();
+
+        return response()->json($dados);
     }
 }

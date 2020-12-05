@@ -20,25 +20,25 @@
             <div class="form-group">
 
                 <label for="nome">Nome:</label>
-                <input type="text" class="form-control" name="nome" value={{ $contact->first_name }} />
+                <input type="text" class="form-control" name="nome" value={{ $paciente->nome }} />
             </div>
 
             <div class="form-group">
                 <label for="sobrenome">Sobrenome:</label>
-                <input type="text" class="form-control" name="sobrenome" value={{ $contact->last_name }} />
+                <input type="text" class="form-control" name="sobrenome" value={{ $paciente->sobrenome }} />
             </div>
 
             <div class="form-group">
                 <label for="telefone">Telefone:</label>
-                <input type="text" class="form-control" name="telefone" value={{ $contact->email }} />
+                <input type="text" class="form-control" name="telefone" value={{ $paciente->telefone }} />
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="text" class="form-control" name="email" value={{ $contact->city }} />
+                <input type="text" class="form-control" name="email" value={{ $paciente->email }} />
             </div>
             <div class="form-group">
                 <label for="cpf">CPF:</label>
-                <input type="text" class="form-control" name="cpf" value={{ $contact->country }} />
+                <input type="text" class="form-control" name="cpf" value={{ $paciente->cpf }} />
             </div>
 
             <button type="submit" class="btn btn-primary">Atualizar</button>

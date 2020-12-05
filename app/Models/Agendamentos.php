@@ -9,7 +9,7 @@ class Agendamentos extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['horario'];
+    protected $fillable = ['nome_medico', 'nome_paciente', 'data'];
     protected $guarded = ['id', 'created_at ', 'update_at'];
     protected $table = 'agendamentos';
 }

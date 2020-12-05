@@ -18,33 +18,32 @@
             @method('PATCH')
             @csrf
             <div class="form-group">
-
-                <label for="first_name">First Name:</label>
-                <input type="text" class="form-control" name="first_name" value={{ $contact->first_name }} />
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" name="nome"/>
             </div>
 
             <div class="form-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" class="form-control" name="last_name" value={{ $contact->last_name }} />
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" class="form-control" name="sobrenome"/>
             </div>
 
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="text" class="form-control" name="email" value={{ $contact->email }} />
+                <input type="text" class="form-control" name="email"/>
             </div>
             <div class="form-group">
-                <label for="city">City:</label>
-                <input type="text" class="form-control" name="city" value={{ $contact->city }} />
+                <label for="telefone">Telefone:</label>
+                <input type="text" class="form-control" name="telefone"/>
             </div>
             <div class="form-group">
-                <label for="country">Country:</label>
-                <input type="text" class="form-control" name="country" value={{ $contact->country }} />
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" name="cpf"/>
             </div>
             <div class="form-group">
-                <label for="job_title">Job Title:</label>
-                <input type="text" class="form-control" name="job_title" value={{ $contact->job_title }} />
+                <label for="crm">CRM:</label>
+                <input type="text" class="form-control" name="crm"/>
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary">Atualizar Registro</button>
         </form>
     </div>
 </div>

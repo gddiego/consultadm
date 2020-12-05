@@ -28,7 +28,7 @@
 
           <div class="form-group">
               <label for="telefone">Telefone:</label>
-              <input type="text" class="form-control" name="telefone"/>
+              <input type="tel" class="form-control" name="telefone"/>
           </div>
           <div class="form-group">
               <label for="email">Email:</label>

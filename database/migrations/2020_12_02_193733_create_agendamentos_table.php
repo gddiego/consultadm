@@ -15,7 +15,13 @@ class CreateAgendamentosTable extends Migration
     {
         Schema::create('agendamentos', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('horario');
+            $table->foreign('medico_id')
+                ->references('id')->on('medico')
+                ->onDelete('cascade');
+            $table->foreign('paciente_id')
+                ->references('id')->on('pacientes_consulta')
+                ->onDelete('cascade');
+            $table->date('data');
             $table->timestamps();
         });
     }
