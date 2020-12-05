@@ -25,7 +25,7 @@ class AgendamentoController extends Controller
             ->leftJoin('medicos', 'agendamentos.id', '=', 'agendamentos.medico_id')
             ->get();
         // dd($medicos);
-        return view('agendamentos.index', compact('medicos', 'pacientes'));
+        return view('agendamentos.index', compact('pacientes', 'medicos'));
     }
 
     /**

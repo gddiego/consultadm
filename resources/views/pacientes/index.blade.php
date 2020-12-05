@@ -20,7 +20,6 @@
         <tr>
           <td>ID</td>
           <td>nome</td>
-          <td>sobrenome</td>
           <td>telefone</td>
           <td>email</td>
           <td>cpf</td>
